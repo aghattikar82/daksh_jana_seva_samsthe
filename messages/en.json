@@ -1,0 +1,19 @@
+{
+  "Navigation": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "gallery": "Gallery",
+    "events": "Events",
+    "donate": "Donate",
+    "volunteer": "Volunteer",
+    "contact": "Contact"
+  },
+  "Hero": {
+    "title": "Daksh Janaseva Samsthe (R)",
+    "tagline": "Empowering Communities, Transforming Lives.",
+    "donate": "Donate Now",
+    "volunteer": "Join as Volunteer",
+    "projects": "Our Projects"
+  }
+}
