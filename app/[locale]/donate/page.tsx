@@ -6,7 +6,7 @@ export default function DonatePage() {
       <div className="bg-primary-dark text-white py-20 text-center">
         <h1 className="text-4xl font-bold mb-4">Make a Donation</h1>
         <p className="max-w-2xl mx-auto text-lg text-gray-200 px-4">
-          Every contribution makes a meaningful difference in someone's life.
+          Every contribution makes a meaningful difference in someone&apos;s life.
         </p>
       </div>
 
