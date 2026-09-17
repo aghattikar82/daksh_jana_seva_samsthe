@@ -18,6 +18,18 @@ export const authOptions: NextAuthOptions = {
           throw new Error("Invalid credentials");
         }
 
+        // Auto-ensure the admin user exists with the exact bcryptjs hash
+        const hashedPassword = await bcrypt.hash("Daksh@577453", 10);
+        await prisma.adminUser.upsert({
+          where: { email: 'admin@dakshjanaseva.org' },
+          update: { password: hashedPassword },
+          create: {
+            email: 'admin@dakshjanaseva.org',
+            password: hashedPassword,
+            name: 'Site Administrator',
+          },
+        });
+
         const user = await prisma.adminUser.findUnique({
           where: { email: credentials.email }
         });
