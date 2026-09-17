@@ -1,6 +1,6 @@
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
-import { Facebook, Twitter, Instagram, Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const t = useTranslations('Navigation');
@@ -56,14 +56,14 @@ export default function Footer() {
         <div>
           <h3 className="font-bold text-lg mb-4 text-accent">Follow Us</h3>
           <div className="flex space-x-4 mb-6">
-            <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
-              <Facebook className="w-5 h-5" />
+            <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors font-bold">
+              FB
             </a>
-            <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
-              <Twitter className="w-5 h-5" />
+            <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors font-bold">
+              TW
             </a>
-            <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors">
-              <Instagram className="w-5 h-5" />
+            <a href="#" className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-secondary transition-colors font-bold">
+              IG
             </a>
           </div>
           <Link href="/donate" className="inline-block bg-accent text-primary-dark font-bold px-6 py-2 rounded-full hover:bg-white transition-colors">
