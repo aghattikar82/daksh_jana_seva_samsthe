@@ -5,7 +5,6 @@ import { prisma } from "@/lib/prisma";
 import bcrypt from "bcryptjs";
 
 export const authOptions: NextAuthOptions = {
-  adapter: PrismaAdapter(prisma) as any,
   providers: [
     CredentialsProvider({
       name: "Credentials",
@@ -14,41 +13,14 @@ export const authOptions: NextAuthOptions = {
         password: { label: "Password", type: "password" }
       },
       async authorize(credentials) {
-        if (!credentials?.email || !credentials?.password) {
-          throw new Error("Invalid credentials");
+        if (credentials?.email === 'admin@dakshjanaseva.org' && credentials?.password === 'Daksh@577453') {
+          return {
+            id: "1",
+            name: "Site Administrator",
+            email: "admin@dakshjanaseva.org",
+          };
         }
-
-        // Auto-ensure the admin user exists with the exact bcryptjs hash
-        const hashedPassword = await bcrypt.hash("Daksh@577453", 10);
-        await prisma.adminUser.upsert({
-          where: { email: 'admin@dakshjanaseva.org' },
-          update: { password: hashedPassword },
-          create: {
-            email: 'admin@dakshjanaseva.org',
-            password: hashedPassword,
-            name: 'Site Administrator',
-          },
-        });
-
-        const user = await prisma.adminUser.findUnique({
-          where: { email: credentials.email }
-        });
-
-        if (!user || !user.password) {
-          throw new Error("Invalid credentials");
-        }
-
-        const isCorrectPassword = await bcrypt.compare(credentials.password, user.password);
-
-        if (!isCorrectPassword) {
-          throw new Error("Invalid credentials");
-        }
-
-        return {
-          id: user.id,
-          name: user.name,
-          email: user.email,
-        };
+        throw new Error("Invalid credentials");
       }
     })
   ],
