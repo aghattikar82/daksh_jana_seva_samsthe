@@ -15,13 +15,13 @@ export default function EventsPage() {
         
         <div className="space-y-6">
           {[
-            { title: "Ram Navami Annadanam", date: "April 17, 2024", loc: "Kalaburagi City", desc: "Successfully served over 500+ meals to the community during the auspicious occasion of Sri Rama Navami." },
-            { title: "Trust Inauguration Ceremony", date: "March 10, 2024", loc: "Main Office, Kalaburagi", desc: "The official opening of Daksh Janaseva Samsthe with local leaders and community members." },
-            { title: "Monsoon Tree Plantation", date: "July 05, 2024", loc: "Rural Outskirts", desc: "Planted 100+ saplings to promote environmental sustainability and greener surroundings." }
+            { title: "Ram Navami Annadanam", date: "April 17, 2024", loc: "Kalaburagi City", desc: "Successfully served over 500+ meals to the community during the auspicious occasion of Sri Rama Navami.", img: "https://images.unsplash.com/photo-1593113514676-5fa0f455c1b5?q=80&w=800&auto=format&fit=crop" },
+            { title: "Trust Inauguration Ceremony", date: "March 10, 2024", loc: "Main Office, Kalaburagi", desc: "The official opening of Daksh Janaseva Samsthe with local leaders and community members.", img: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?q=80&w=800&auto=format&fit=crop" },
+            { title: "Monsoon Tree Plantation", date: "July 05, 2024", loc: "Rural Outskirts", desc: "Planted 100+ saplings to promote environmental sustainability and greener surroundings.", img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop" }
           ].map((evt, i) => (
-            <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6">
-              <div className="w-full md:w-64 h-48 bg-gray-200 rounded-xl shrink-0 flex items-center justify-center text-gray-400">
-                Event Photo
+            <div key={i} className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col md:flex-row gap-6 hover:shadow-md transition-shadow">
+              <div className="w-full md:w-64 h-48 bg-gray-200 rounded-xl shrink-0 overflow-hidden relative">
+                <img src={evt.img} alt={evt.title} className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col justify-center">
                 <h3 className="text-2xl font-bold text-gray-800 mb-2">{evt.title}</h3>
@@ -30,9 +30,9 @@ export default function EventsPage() {
                   <span className="flex items-center"><MapPin className="w-4 h-4 mr-1" /> {evt.loc}</span>
                 </div>
                 <p className="text-gray-600 leading-relaxed">{evt.desc}</p>
-                <button className="mt-4 text-primary font-bold hover:text-secondary self-start transition-colors">
+                <a href="/gallery" className="mt-4 text-primary font-bold hover:text-secondary self-start transition-colors">
                   View Event Gallery &rarr;
-                </button>
+                </a>
               </div>
             </div>
           ))}
