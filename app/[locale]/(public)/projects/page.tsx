@@ -6,12 +6,12 @@ export default function ProjectsPage() {
   const t = useTranslations('Projects');
 
   const projects = [
-    { key: 'annadanam', icon: Heart, color: 'text-red-500', bg: 'bg-red-50' },
-    { key: 'education', icon: BookOpen, color: 'text-blue-500', bg: 'bg-blue-50' },
-    { key: 'health', icon: Stethoscope, color: 'text-green-500', bg: 'bg-green-50' },
-    { key: 'blood', icon: Droplet, color: 'text-rose-500', bg: 'bg-rose-50' },
-    { key: 'tree', icon: TreePine, color: 'text-emerald-500', bg: 'bg-emerald-50' },
-    { key: 'women', icon: Users, color: 'text-purple-500', bg: 'bg-purple-50' },
+    { key: 'annadanam', icon: Heart, color: 'text-red-500', bg: 'bg-red-50', img: "https://images.unsplash.com/photo-1593113514676-5fa0f455c1b5?q=80&w=800&auto=format&fit=crop" },
+    { key: 'education', icon: BookOpen, color: 'text-blue-500', bg: 'bg-blue-50', img: "https://images.unsplash.com/photo-1509062522246-3755977927d7?q=80&w=800&auto=format&fit=crop" },
+    { key: 'health', icon: Stethoscope, color: 'text-green-500', bg: 'bg-green-50', img: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=800&auto=format&fit=crop" },
+    { key: 'blood', icon: Droplet, color: 'text-rose-500', bg: 'bg-rose-50', img: "https://images.unsplash.com/photo-1615461066841-6116e61058f4?q=80&w=800&auto=format&fit=crop" },
+    { key: 'tree', icon: TreePine, color: 'text-emerald-500', bg: 'bg-emerald-50', img: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=800&auto=format&fit=crop" },
+    { key: 'women', icon: Users, color: 'text-purple-500', bg: 'bg-purple-50', img: "https://images.unsplash.com/photo-1573164713988-8665fc963095?q=80&w=800&auto=format&fit=crop" },
   ];
 
   return (
@@ -29,11 +29,11 @@ export default function ProjectsPage() {
           {projects.map((proj) => {
             const Icon = proj.icon;
             return (
-              <div key={proj.key} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-lg transition-shadow group">
+              <div key={proj.key} className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all group">
                 <div className="h-48 bg-gray-200 relative flex items-center justify-center overflow-hidden">
-                  {/* Placeholder for project image */}
-                  <div className={`absolute inset-0 opacity-20 ${proj.bg}`}></div>
-                  <Icon className={`w-20 h-20 ${proj.color} opacity-50 group-hover:scale-110 transition-transform duration-500`} />
+                  <img src={proj.img} alt={proj.key} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-black/30 group-hover:bg-black/10 transition-colors"></div>
+                  <Icon className="w-16 h-16 text-white drop-shadow-md z-10 opacity-90 group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="p-6">
                   <h3 className="text-2xl font-bold text-gray-800 mb-2">{t(`${proj.key}.title` as any)}</h3>
