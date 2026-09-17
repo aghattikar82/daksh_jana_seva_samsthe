@@ -20,9 +20,6 @@ export const metadata: Metadata = {
   description: "Modern, minimal, professional NGO website.",
 };
 
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-
 export default async function RootLayout({
   children,
   params
@@ -32,24 +29,17 @@ export default async function RootLayout({
 }>) {
   const { locale } = await params;
   
-  // Ensure that the incoming `locale` is valid
   if (!routing.locales.includes(locale as any)) {
     notFound();
   }
   
-  // Providing all messages to the client
-  // side is the easiest way to get started
   const messages = await getMessages();
 
   return (
     <html lang={locale}>
       <body className={`${geistSans.variable} ${geistMono.variable} bg-background text-foreground antialiased flex flex-col min-h-screen`}>
         <NextIntlClientProvider messages={messages}>
-          <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
+          {children}
         </NextIntlClientProvider>
       </body>
     </html>

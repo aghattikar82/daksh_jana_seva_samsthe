@@ -1,19 +1,28 @@
 'use client';
 
 import { useState } from 'react';
-import { UploadCloud, Image as ImageIcon, Trash2, Video } from 'lucide-react';
+import { UploadCloud, Image as ImageIcon, Trash2, Video, Info } from 'lucide-react';
 
 export default function GalleryAdminPage() {
   const [isUploading, setIsUploading] = useState(false);
+  const [selectedProject, setSelectedProject] = useState('');
+  const [message, setMessage] = useState<{ text: string, type: 'info' | 'success' | 'error' } | null>(null);
 
   const handleUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files || e.target.files.length === 0) return;
     
-    // Simulate upload delay for UI visualization
+    if (!selectedProject) {
+      setMessage({ text: "Please select a project before uploading.", type: 'error' });
+      return;
+    }
+
     setIsUploading(true);
+    setMessage(null);
+    
+    // Simulate upload delay for UI visualization
     setTimeout(() => {
       setIsUploading(false);
-      alert("Note: This is the visual UI layout! Backend storage connection will be added next.");
+      setMessage({ text: "Note: This is the visual UI layout! Backend storage connection will be added next.", type: 'info' });
     }, 1500);
   };
 
@@ -25,9 +34,37 @@ export default function GalleryAdminPage() {
           <p className="text-gray-500 mt-1">Upload and manage photos/videos for the public gallery.</p>
         </div>
       </div>
+
+      {message && (
+        <div className={`mb-6 p-4 rounded-xl flex items-center gap-3 ${
+          message.type === 'error' ? 'bg-red-50 text-red-700 border border-red-200' :
+          message.type === 'success' ? 'bg-green-50 text-green-700 border border-green-200' :
+          'bg-blue-50 text-blue-700 border border-blue-200'
+        }`}>
+          <Info className="w-5 h-5 flex-shrink-0" />
+          <span className="font-medium">{message.text}</span>
+        </div>
+      )}
       
       {/* Upload Zone */}
       <div className="bg-white rounded-3xl shadow-sm border-2 border-dashed border-gray-200 p-12 text-center mb-10 hover:border-primary/50 transition-colors">
+        
+        <div className="max-w-xs mx-auto mb-8 text-left">
+          <label className="block text-sm font-bold text-gray-700 mb-2">Assign to Project:</label>
+          <select 
+            value={selectedProject}
+            onChange={(e) => setSelectedProject(e.target.value)}
+            className="w-full px-4 py-2 rounded-lg border border-gray-300 focus:ring-primary focus:border-primary bg-white text-gray-700"
+          >
+            <option value="">-- Select a Project --</option>
+            <option value="annadanam">Annadanam</option>
+            <option value="education">Education Support</option>
+            <option value="health">Health Camps</option>
+            <option value="tree_plantation">Tree Plantation</option>
+            <option value="general">General / Other Events</option>
+          </select>
+        </div>
+
         <UploadCloud className="w-16 h-16 text-primary mx-auto mb-4" />
         <h3 className="text-xl font-bold text-gray-700 mb-2">Upload Media Files</h3>
         <p className="text-gray-500 mb-6 max-w-md mx-auto">
