@@ -67,10 +67,10 @@ const eventsData: Record<string, any> = {
   }
 };
 
-import { unstable_setRequestLocale } from 'next-intl/server';
+import { setRequestLocale } from 'next-intl/server';
 
 export default function EventDetailPage({ params }: { params: { locale: string, slug: string } }) {
-  unstable_setRequestLocale(params.locale);
+  setRequestLocale(params.locale);
   const event = eventsData[params.slug] || eventsData['annadanam'];
 
   return (
