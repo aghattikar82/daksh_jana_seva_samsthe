@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
 import { Mail, Phone, MapPin } from 'lucide-react';
@@ -12,8 +13,8 @@ export default function Footer() {
         {/* Brand */}
         <div className="space-y-4">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center font-bold">
-              DJS
+            <div className="bg-white p-1 rounded-full flex items-center justify-center w-12 h-12">
+              <Image src="/logo.jpg" alt="Daksh Janaseva Logo" width={40} height={40} className="object-contain" />
             </div>
             <span className="font-bold text-xl">Daksh Janaseva</span>
           </div>

@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import {useTranslations} from 'next-intl';
 import {Link} from '@/i18n/routing';
 import LanguageSwitcher from './LanguageSwitcher';
@@ -19,11 +20,9 @@ export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-md shadow-sm">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        {/* Logo Placeholder */}
+        {/* Logo */}
         <Link href="/" className="flex items-center space-x-2">
-          <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center text-primary font-bold">
-            DJS
-          </div>
+          <Image src="/logo.jpg" alt="Daksh Janaseva Samsthe" width={40} height={40} className="object-contain" />
           <span className="font-bold text-lg text-primary hidden sm:inline-block">
             Daksh Janaseva
           </span>
