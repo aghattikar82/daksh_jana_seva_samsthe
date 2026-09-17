@@ -15,5 +15,51 @@
     "donate": "Donate Now",
     "volunteer": "Join as Volunteer",
     "projects": "Our Projects"
+  },
+  "About": {
+    "title": "About Us",
+    "intro": "Daksh Janaseva Samsthe is a dedicated non-profit organization committed to uplifting the marginalized and driving sustainable social change in Kalaburagi.",
+    "missionTitle": "Our Mission",
+    "missionDesc": "To empower individuals and communities through accessible healthcare, quality education, and sustainable livelihood programs, fostering an environment of equality and justice.",
+    "visionTitle": "Our Vision",
+    "visionDesc": "A society where every individual has access to basic human rights, opportunities for growth, and the ability to lead a life of dignity.",
+    "objectivesTitle": "Our Objectives",
+    "obj1": "Eradicate hunger through Annadanam programs.",
+    "obj2": "Provide educational support to underprivileged children.",
+    "obj3": "Organize regular health camps in rural areas.",
+    "obj4": "Promote environmental sustainability through tree plantation.",
+    "leadershipTitle": "Leadership Team",
+    "president": "President",
+    "secretary": "Secretary",
+    "coreMember": "Core Member"
+  },
+  "Projects": {
+    "title": "Our Projects",
+    "subtitle": "Discover the initiatives we are running to create a positive impact in our community.",
+    "learnMore": "Learn More",
+    "annadanam": {
+      "title": "Annadanam",
+      "desc": "Providing nutritious meals to the hungry and marginalized."
+    },
+    "education": {
+      "title": "Education Support",
+      "desc": "Empowering children with books, uniforms, and scholarships."
+    },
+    "health": {
+      "title": "Health Camps",
+      "desc": "Free medical checkups and medicine distribution in rural areas."
+    },
+    "blood": {
+      "title": "Blood Donation",
+      "desc": "Organizing blood donation drives to save lives."
+    },
+    "tree": {
+      "title": "Tree Plantation",
+      "desc": "Creating a greener tomorrow by planting thousands of saplings."
+    },
+    "women": {
+      "title": "Women Empowerment",
+      "desc": "Skill development and self-reliance programs for women."
+    }
   }
 }
