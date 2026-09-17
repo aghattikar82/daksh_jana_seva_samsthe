@@ -1,4 +1,5 @@
 import { Calendar, MapPin } from 'lucide-react';
+import { Link } from '@/i18n/routing';
 
 export default function EventsPage() {
   return (
@@ -30,9 +31,9 @@ export default function EventsPage() {
                   <span className="flex items-center"><MapPin className="w-4 h-4 mr-1" /> {evt.loc}</span>
                 </div>
                 <p className="text-gray-600 leading-relaxed">{evt.desc}</p>
-                <a href={`/events/${evt.slug}`} className="mt-4 inline-flex items-center text-white bg-primary px-5 py-2 rounded-full font-bold hover:bg-secondary self-start transition-colors shadow-sm">
+                <Link href={`/events/${evt.slug}` as any} className="mt-4 inline-flex items-center text-white bg-primary px-5 py-2 rounded-full font-bold hover:bg-secondary self-start transition-colors shadow-sm">
                   View Event Details &rarr;
-                </a>
+                </Link>
               </div>
             </div>
           ))}

@@ -1,4 +1,5 @@
 import { Image as ImageIcon, Video } from 'lucide-react';
+import { Link } from '@/i18n/routing';
 
 export default function GalleryPage() {
   return (
@@ -33,9 +34,9 @@ export default function GalleryPage() {
             { id: 5, eventSlug: "health", src: "https://images.unsplash.com/photo-1576765608535-5f04d1e3f289?q=80&w=800&auto=format&fit=crop", alt: "Health Camp", tag: "Rural Health Camp", height: "h-[350px]" },
             { id: 6, eventSlug: "inauguration", src: "https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=800&auto=format&fit=crop", alt: "Community Gathering", tag: "Trust Inauguration", height: "h-[280px]" }
           ].map((img) => (
-            <a 
+            <Link 
               key={img.id} 
-              href={`/events/${img.eventSlug}`}
+              href={`/events/${img.eventSlug}` as any}
               className={`block relative group rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 mb-6 w-full ${img.height}`}
             >
               <img src={img.src} alt={img.alt} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
@@ -52,7 +53,7 @@ export default function GalleryPage() {
                   View Full Event &rarr;
                 </p>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>
